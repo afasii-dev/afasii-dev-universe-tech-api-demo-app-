@@ -1,5 +1,4 @@
-
-# ENDPOINTS:
+# ENDPOINTS (CRUD):
 
 ### 1. Get all users:
 

@@ -8,9 +8,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
 import java.time.LocalTime;
-import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -24,7 +22,7 @@ public class UserController {
     public Iterable<User> findAll() {
         var users = userRepository.findAll();
         log.info("{} - User controller triggered", LocalTime.now());
-        return userRepository.findAll();
+        return users;
     }
 
     @GetMapping("/{id}")
@@ -52,15 +50,5 @@ public class UserController {
     public void deleteUser(@PathVariable Long id) {
         userRepository.deleteById(id);
         log.info("{} - Deleting User: {}", LocalTime.now(), id);
-    }
-
-    @PostConstruct
-    public void postConstruct() {
-        var users = List.of(
-                new User(1L, "Alex", "123-"),
-                new User(2L, "Ivan", "321-")
-        );
-        userRepository.saveAll(users);
-        log.info("{} - Post Construct Saving Users : {}", LocalTime.now(), users);
     }
 }
