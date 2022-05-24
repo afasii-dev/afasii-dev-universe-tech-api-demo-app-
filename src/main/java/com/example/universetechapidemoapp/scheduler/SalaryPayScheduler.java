@@ -4,7 +4,6 @@ import com.example.universetechapidemoapp.model.SalaryInfo;
 import com.example.universetechapidemoapp.repository.SalaryInfoRepository;
 import com.example.universetechapidemoapp.repository.SalaryManagerRepository;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

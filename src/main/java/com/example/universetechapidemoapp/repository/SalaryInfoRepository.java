@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SalaryInfoRepository extends CrudRepository<SalaryInfo, Long> {
-    Iterable<SalaryInfo> findAllByEmployeeId(Long id);
+  Iterable<SalaryInfo> findAllByEmployeeId(Long id);
 }

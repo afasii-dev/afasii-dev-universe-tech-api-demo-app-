@@ -3,7 +3,6 @@ package com.example.universetechapidemoapp.scheduler;
 import com.example.universetechapidemoapp.enums.Status;
 import com.example.universetechapidemoapp.model.SalaryManager;
 import com.example.universetechapidemoapp.repository.SalaryManagerRepository;
-import java.time.LocalTime;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
