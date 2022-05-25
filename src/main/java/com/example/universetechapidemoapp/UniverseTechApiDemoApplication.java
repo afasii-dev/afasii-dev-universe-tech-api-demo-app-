@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @Slf4j
-public class UniverseTechApiDemoAppApplication {
+public class UniverseTechApiDemoApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(UniverseTechApiDemoAppApplication.class, args);
+    SpringApplication.run(UniverseTechApiDemoApplication.class, args);
     log.info("Database url : http://localhost:8080/h2");
   }
 }
