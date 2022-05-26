@@ -34,7 +34,7 @@ public class SalaryInfoController {
   }
 
   @GetMapping("/{id}")
-  public Iterable<SalaryInfo> getSalariesById(@PathVariable Long id) {
+  public Iterable<SalaryInfo> getSalariesByEmpId(@PathVariable Long id) {
     log.info("Salary info controller - get salaries by id : {}", id);
     return salaryInfoRepository.findAllByEmployeeId(id);
   }
@@ -51,11 +51,5 @@ public class SalaryInfoController {
 
     log.info("Salary info controller - save salary: {}", salaryInfo);
     return salaryInfoRepository.save(salaryInfo);
-  }
-
-  @PostMapping("/trigger-salary-pay")
-  public Iterable<SalaryInfo> triggerSalaryScheduler() {
-    log.warn("Salary manager controller - trigger salary scheduler");
-    return salaryPayScheduler.sync();
   }
 }

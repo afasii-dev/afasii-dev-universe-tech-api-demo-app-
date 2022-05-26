@@ -8,6 +8,8 @@ import com.example.universetechapidemoapp.model.SalaryManager;
 import com.example.universetechapidemoapp.repository.EmployeeRepository;
 import com.example.universetechapidemoapp.repository.SalaryManagerRepository;
 import com.example.universetechapidemoapp.repository.SalaryRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.time.LocalDate;
 import javax.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
@@ -24,7 +26,7 @@ public class DbConfig {
   private final SalaryManagerRepository salaryManagerRepository;
 
   @PostConstruct
-  public void postConstruct() {
+  public void postConstruct() throws JsonProcessingException {
     var employee = new Employee();
     employee.setFirstName("Alex");
     employee.setLastName("Fasii");
