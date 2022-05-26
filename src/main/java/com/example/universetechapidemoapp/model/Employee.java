@@ -1,20 +1,13 @@
 package com.example.universetechapidemoapp.model;
 
 import com.example.universetechapidemoapp.enums.Job;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @ToString
 @Getter
@@ -24,23 +17,28 @@ import lombok.ToString;
 @Entity
 @Table(name = "employees")
 public class Employee {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-  @Column(nullable = false, name = "first_name")
-  private String firstName;
+    @NotBlank(message = "firstName is mandatory")
+    @Column(nullable = false, name = "first_name")
+    private String firstName;
 
-  @Column(nullable = false, name = "last_name")
-  private String lastName;
+    @NotBlank(message = "lastName is mandatory")
+    @Column(nullable = false, name = "last_name")
+    private String lastName;
 
-  @Column(nullable = false, name = "date_of_birth")
-  private LocalDate dateOfBirth;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(pattern = "MM/dd/yyyy")
+    @Column(nullable = false, name = "date_of_birth")
+    private LocalDate dateOfBirth;
 
-  @Column(nullable = false)
-  private String phone;
+    @NotBlank(message = "phone is mandatory")
+    @Column(nullable = false, name = "phone")
+    private String phone;
 
-  @Column
-  @Enumerated(EnumType.STRING)
-  private Job job;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, name = "job")
+    private Job job;
 }
