@@ -59,3 +59,10 @@
 ### POST http://localhost:8080/v2/triggers/trigger-salary-scheduler
 
 ### POST http://localhost:8080/v2/triggers/trigger-salary-pay
+
+***
+1. Создаете Employee
+2. Назначаете зарплату при помощи salary manager
+3. Делаете Approve/Reject
+4. Запускаете Salary scheduler
+5. Запускаете Salary pay scheduler

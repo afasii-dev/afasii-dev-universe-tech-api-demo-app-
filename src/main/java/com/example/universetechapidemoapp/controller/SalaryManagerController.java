@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v2/salary-manager")
 public class SalaryManagerController {
   private final SalaryManagerRepository salaryManagerRepository;
-  private final SalaryScheduler salaryScheduler;
 
   @GetMapping
   public Iterable<SalaryManager> findAll() {
