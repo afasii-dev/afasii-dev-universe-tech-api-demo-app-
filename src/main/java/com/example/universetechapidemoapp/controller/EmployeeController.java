@@ -41,6 +41,7 @@ public class EmployeeController {
         var employeeSaved = employeeRepository.save(employee);
         var salaryManager = new SalaryManager();
         salaryManager.setId(employeeSaved.getId());
+        salaryManager.setEmployee(employeeSaved);
         salaryManagerRepository.save(salaryManager);
         return employee;
     }
