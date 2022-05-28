@@ -45,7 +45,7 @@ public class EmployeeController {
     return employeeRepository.save(employee);
   }
 
-  @PutMapping("{/id}")
+  @PutMapping("/{id}")
   public Employee updateEmployee(@PathVariable Long id, @Valid @RequestBody Employee employee) {
     var employeeToUpdate = employeeRepository.findById(id).get();
     BeanUtils.copyProperties(employee, employeeToUpdate);
