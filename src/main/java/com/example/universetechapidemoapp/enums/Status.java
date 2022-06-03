@@ -1,8 +1,7 @@
 package com.example.universetechapidemoapp.enums;
 
 public enum Status {
-  PENDING_APPROVAL,
-  APPROVED,
-  REJECTED,
-  ERROR
+    PENDING_APPROVAL,
+    APPROVED,
+    REJECTED
 }
