@@ -1,31 +1,68 @@
+# ENDPOINTS v2:
 
-# ENDPOINTS:
+## Employee Controller
 
-### 1. Get all users:
+### GET http://localhost:8081/v2/employees
 
-     GET: http://localhost:8080/v1/users/        
+### GET http://localhost:8081/v2/employees/{id}
 
-### 2. Get user by Id:
+### POST http://localhost:8081/v2/employees
 
-     GET: http://localhost:8080/v1/users/{id}  
+`{
+"firstName": "{firstName}",
+"lastName": "{lastName}",
+"dateOfBirth": "{dateOfBirth}",
+"phone": "{phone}",
+"job": "{job}"
+}`
 
-### 3. Save User
+### PUT http://localhost:8081/v2/employees/{id}
 
-     POST: http://localhost:8080/v1/users/
-     {
-        "username":"{username}",
-        "password":"{password}"
-     }
+`{
+"firstName": "{firstName}",
+"lastName": "{lastName}",
+"dateOfBirth": "{dateOfBirth}",
+"phone": "{phone}",
+"job": "{job}"
+}`
 
-### 4. Update User
+### DELETE http://localhost:8081/v2/employees/{id}
 
-     PUT: http://localhost:8080/v1/users/
-     {
-        "id":"{id}",
-        "username":"{username}",
-        "password":"{password}"
-     }
+***
 
-### 5. Delete user by Id
+## SalaryInfo Controller
 
-     DELETE: http://localhost:8080/v1/users/{id} 
+### GET http://localhost:8081/v2/salaries
+
+### GET http://localhost:8081/v2/salaries/{employee_id}
+
+### POST http://localhost:8081/v2/salaries/{id}?salary={amount}
+
+***
+
+## SalaryManager Controller
+
+### GET http://localhost:8081/v2/salary-manager
+
+### GET http://localhost:8081/v2/salary-manager/{employee_id}
+
+### GET http://localhost:8081/v2/salary-manager/status?status={status}
+
+### POST http://localhost:8081/v2/salary-manager/{id}?scheduleSalary={amount}
+
+### POST http://localhost:8081/v2/salary-manager/status/{id}?status={status}
+
+***
+
+# Triggers
+
+### POST http://localhost:8081/v2/triggers/trigger-salary-scheduler
+
+### POST http://localhost:8081/v2/triggers/trigger-salary-pay
+
+***
+1. Создаете Employee
+2. Назначаете зарплату при помощи salary manager
+3. Делаете Approve/Reject
+4. Запускаете Salary scheduler
+5. Запускаете Salary pay scheduler
